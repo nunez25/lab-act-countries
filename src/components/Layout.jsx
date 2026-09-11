@@ -13,9 +13,9 @@ const Layout = () => {
         </div>
 
         <div className="flex gap-5">
-          <Link to="/">
+          <a href>
             <p className="text-[12px]">Home</p>
-          </Link>
+          </a>
 
           <Link to="/countries">
             <p className="text-[12px]">Countries</p>
