@@ -22,12 +22,6 @@ const App = () => {
       </Route>
     </Routes>
   );
-
-  // return (
-  //   <Layout>
-  //     <HomePage />
-  //   </Layout>
-  // );
 };
 
 export default App;
