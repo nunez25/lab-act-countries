@@ -19,27 +19,21 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
 
-        <Route path="countries">
+        <Route path="countries" element={<CountriesLayout />}>
           <Route index element={<CountriesPage />} />
-          <Route path=":countryCode" element={<CountryDetailPage />} />
+
+          <Route element={<RequireValidCountry />}>
+            <Route
+              path=":countryCode"
+              element={<CountryDetailPage />}
+            />
+          </Route>
         </Route>
 
         <Route path="bucket-list" element={<BucketListPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="*" element={<NotFoundPage/>}/>
-        </Route>
-
-        <Route path="countries" element={<CountriesLayout />}>
-          <Route index element={<CountriesPage />} />
-          <Route path=":countryCode" element={<CountryDetailPage />} />
-        </Route>
-
-        <Route path="countries" element={<CountriesLayout />}>
-          <Route index element={<CountriesPage />} />
-          <Route element={<RequireValidCountry />}>
-            <Route path=":countryCode" element={<CountryDetailPage />} />
-          </Route>
-        </Route>
+        <Route path="about" element={<AboutPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
     </Routes>
   );
 };
