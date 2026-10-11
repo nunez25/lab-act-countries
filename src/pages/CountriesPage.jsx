@@ -1,9 +1,20 @@
 import { Link } from "react-router";
 import COUNTRIES from "../data/countries";
+import { useLocation } from "react-router";
 
 const CountriesPage = () => {
+  const { state } = useLocation();
+
   return (
   <div className="max-w-4xl mx-auto">
+    {state?.missingCode && (
+      <div className="alert alert-warning mb-4">
+        <span>
+          We don&apos;t have a country with code &quot;{state.missingCode}&quot;.
+        </span>
+      </div>
+    )}
+
     <h1 className="text-3xl font-bold mb-4">Countries</h1>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {COUNTRIES.map((c) => (
